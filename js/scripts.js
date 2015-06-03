@@ -1,3 +1,5 @@
+// check git log for functionality.
+
 function Player(mark, isTurn) {
   this.mark = mark;
   this.isTurn = isTurn;
@@ -21,8 +23,10 @@ Board.prototype.populate = function() {
     var space = new Space(3,i);
     this.spaces.push(space);
   };
-
 };
+
+//puts spaces into the board array
+
 
 function Space(xCoordinate, yCoordinate){
   this.xCoordinate = xCoordinate;
@@ -37,6 +41,7 @@ Space.prototype.markedBy = function(player) {
     return this.marked;
 };
 
+//allows player to mark a space
 
 function Game() {
   this.winner = "";
@@ -55,6 +60,7 @@ Game.prototype.switchPlayer = function(player1, player2) {
   }
 };
 
+//switches player turn . not used yet but may be helpful later
 
 Game.prototype.detectFullBoard = function(board) {
   var blankSpaces = [];
@@ -71,6 +77,7 @@ Game.prototype.detectFullBoard = function(board) {
   }
 };
 
+//used for bottom function to detect if all spaces are marked
 
 Game.prototype.determineWinner = function(board) {
   var finalWinner = "";
@@ -105,3 +112,8 @@ Game.prototype.determineWinner = function(board) {
   this.winner = finalWinner;
   return finalWinner;
 }
+
+//function determines winner
+
+
+// *** We decided to separate jQuery file from the JavaScript functions. jQuery is in jquery.js ***

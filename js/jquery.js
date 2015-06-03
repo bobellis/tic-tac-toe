@@ -28,6 +28,9 @@ $(document).ready(function(){
     }
   });
 
+
+  //player 1 always starts a game and this is the form that player 1 will submit.
+  // checks for winner every time the form is submitted.
   $("form#player1-form").submit(function(event){
     event.preventDefault();
     var inputtedMove = parseInt($("input#player1-space").val());
@@ -49,6 +52,8 @@ $(document).ready(function(){
       $("input#player1-space").val("")
   });
 
+
+//player 2 form.
   $("form#player2-form").submit(function(event){
     event.preventDefault();
     var inputtedMove = parseInt($("input#player2-space").val());
