@@ -56,8 +56,25 @@ Game.prototype.switchPlayer = function(player1, player2) {
 };
 
 
+Game.prototype.detectFullBoard = function(board) {
+  var blankSpaces = [];
+  for (var i = 0; i <= 8; i++) {
+    if (board.spaces[i].marked === "") {
+        blankSpaces.push(board.spaces[i]);
+    }
+  }
+
+  if (blankSpaces.length > 0) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+
 Game.prototype.determineWinner = function(board) {
   var finalWinner = "";
+
   if (board.spaces[0].marked === board.spaces[1].marked  && board.spaces[1].marked === board.spaces[2].marked) {
     finalWinner = board.spaces[0].marked;
 
@@ -82,8 +99,9 @@ Game.prototype.determineWinner = function(board) {
   } else if (board.spaces[2].marked === board.spaces[5].marked  && board.spaces[5].marked === board.spaces[8].marked) {
     finalWinner = board.spaces[2].marked;
 
-  } else {
+  } else if (this.detectFullBoard(board)) {
     finalWinner = "Tie";
   }
+  this.winner = finalWinner;
   return finalWinner;
 }

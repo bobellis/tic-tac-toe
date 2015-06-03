@@ -1,0 +1,16 @@
+.player1-mark {
+  display: none;
+}
+
+.player2-mark {
+  display: none;
+}
+
+
+#player1-form {
+  display: none;
+}
+
+#player2-form {
+  display: none;
+}
